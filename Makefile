@@ -84,7 +84,7 @@ $(EPUB_PAN_DARK): $(MD) | $(BUILD)
 	       --css=$(DARKPUB) \
 		   --metadata cover-image=$(COVER) \
 	       -o $@
-	@echo "✅ Light EPUB successfully produced by pandoc."
+	@echo "✅ Dark EPUB successfully produced by pandoc."
 # ---------------------------------------------------------
 
 
