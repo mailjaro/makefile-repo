@@ -3,6 +3,7 @@
         "epub",
         "epubs",
         "makef",
-        "pandoc"
+        "pandoc",
+        "recepies"
     ]
 }

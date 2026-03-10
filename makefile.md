@@ -99,6 +99,35 @@ Målet **report.pdf** produseres her ved
 
 (dersom PDF-filen mangler eller om **report.adoc** er nyere).
 
+### Vanlig phony regelstruktur
+
+Make opererte tradisjonelt på filer. Phony targets er kommet til senere, og avgjørelse om når disse krever ny kjøring eller ei, blir derfor mer indirekte.
+
+Om man har en regel med phony target
+
+```makefile
+fony: dep1
+	cat "Hello" > fil.txt
+```
+
+skriver man denne gjerne slik:
+
+```makefile
+fony: fil.txt
+fil.txt: dep1
+	cat "Hello" > @
+```
+
+Man ønske å produsere filen **fil.txt** her, men i den øverste regelen kan  ikke Make ikke vite det, og regelen blir kjørt uansett.
+
+I den andre har man to regler (med hhv. target **fony** og **fil.txt**). Den første har ingen recepies og blir derfor bare en form for alias til den andre. Bruker kan  dermed fortsatt si
+
+```bash
+% make fony
+```
+
+som før (hvilket kan være å foretrekke om filnavnet er langt). Men i dette tilfellet vil Make presist kunne avgjøre om **fil.txt** fins, om den er endret etc, slik at regelen bare blir brukt når det er nødvendig (som for vanlige fil-targets).
+
 ---
 
 ## Variable
@@ -521,6 +550,14 @@ Man man kan også eksplisitt sette default target ved `.DEFAULT_GOAL := <target>
 
 - Bruk `make -B` eller `touch` for å tvinge rebuild for testing.
 
+- Lag en **help**-regel (som skriver ut lovlige targets til skjerm). Inkluder også `.DEFAULT`-regelen under i Makefile, slik at om bruker angir targets feil, vises output fra `make help` på skjermen framfor en feilmelding:
+
+```makefile
+.DEFAULT:
+	@echo "Unknown target: $@"
+	@echo
+	@$(MAKE) --no-print-directory help
+```
 
 ### Makefile-eksempel
 
