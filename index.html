@@ -641,6 +641,7 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_recepies">Recepies</a></li>
 </ul>
 </li>
+<li><a href="#_vanlig_phony_regelstruktur">Vanlig phony regelstruktur</a></li>
 </ul>
 </li>
 <li><a href="#_variable">Variable</a></li>
@@ -882,8 +883,47 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <div class="paragraph">
 <p>(dersom PDF-filen mangler eller om <strong>report.adoc</strong> er nyere).</p>
 </div>
-<hr>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_vanlig_phony_regelstruktur"><a class="anchor" href="#_vanlig_phony_regelstruktur"></a>Vanlig phony regelstruktur</h4>
+<div class="paragraph">
+<p>Make opererte tradisjonelt på filer. Phony targets er kommet til senere, og avgjørelse om når disse krever ny kjøring eller ei, blir derfor mer indirekte.</p>
+</div>
+<div class="paragraph">
+<p>Om man har en regel med phony target</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="text">fony: dep1
+    cat "Hello" &gt; fil.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>skriver man denne gjerne slik:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="text">fony: fil.txt
+fil.txt: dep1
+    cat "Hello" &gt; @</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Man ønske å produsere filen <strong>fil.txt</strong> her, men i den øverste regelen kan ikke Make ikke vite det, og regelen blir kjørt uansett.</p>
+</div>
+<div class="paragraph">
+<p>I den andre har man to regler (med hhv. target <strong>fony</strong> og <strong>fil.txt</strong>). Den første har ingen recepies og blir derfor bare en form for alias til den andre. Bruker kan dermed fortsatt si</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">% make fony</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>som før (hvilket kan være å foretrekke om filnavnet er langt). Men i dette tilfellet vil Make presist kunne avgjøre om <strong>fil.txt</strong> fins, om den er endret etc, slik at regelen bare blir brukt når det er nødvendig (som for vanlige fil-targets).</p>
+</div>
+<hr>
 </div>
 </div>
 <div class="sect2">
@@ -1645,7 +1685,18 @@ all: target1 target2 ... clean</code></pre>
 <li>
 <p>Bruk <code>make -B</code> eller <code>touch</code> for å tvinge rebuild for testing.</p>
 </li>
+<li>
+<p>Lag en <strong>help</strong>-regel (som skriver ut lovlige targets til skjerm). Inkluder også <code>.DEFAULT</code>-regelen under i Makefile, slik at om bruker angir targets feil, vises output fra <code>make help</code> på skjermen framfor en feilmelding:</p>
+</li>
 </ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="text">.DEFAULT:
+    @echo "Unknown target: $@"
+    @echo
+    @$(MAKE) --no-print-directory help</code></pre>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_makefile_eksempel"><a class="anchor" href="#_makefile_eksempel"></a>Makefile-eksempel</h4>
