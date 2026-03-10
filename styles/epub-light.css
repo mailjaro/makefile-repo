@@ -1,0 +1,60 @@
+/* ---------------------------
+   GENERELL KODEBLOKK
+--------------------------- */
+
+pre {
+  padding: 0.8em;
+  margin: 1em 0;
+  overflow-x: auto;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+/* Fjern Pandoc sin bakgrunn */
+div.sourceCode,
+pre.sourceCode {
+  background: inherit !important;
+}
+
+/* ---------------------------
+   INPUT (bash, json)
+--------------------------- */
+
+pre.sourceCode.bash,
+pre.sourceCode.json,
+pre.bash,
+pre.json {
+  background-color: #f4f4f4 !important;
+  border-left: 4px solid #4caf50;
+}
+
+/* ---------------------------
+   OUTPUT (text)
+--------------------------- */
+
+pre.text {
+  background-color: #fafafa;
+  border-left: 4px solid #2196f3;
+}
+
+/* ---------------------------
+   MINIMAL HIGHLIGHT
+   (rolige tekniske farger)
+--------------------------- */
+
+/* keywords */
+code span.kw { color: #005f87; font-weight: bold; }
+
+/* strings */
+code span.st { color: #2e7d32; }
+
+/* comments */
+code span.co { color: #777777; font-style: italic; }
+
+/* numbers */
+code span.dv,
+code span.fl { color: #aa5500; }
+
+/* types */
+code span.dt { color: #6a1b9a; }

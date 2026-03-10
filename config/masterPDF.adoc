@@ -1,0 +1,35 @@
+= Litt om Makefile
+Jan R Sandbakken <mailjaro@gmail.com>
+v1.0 2026-03-10
+:description: In introduksjon til Makefiles
+:doctype: book
+:front-cover-image: image:../images/cover.png[]
+:title-page:
+:icons: font
+:toc: left
+:toc-title: Innholdsfortegnelse
+:toclevels: 4
+:sectanchors:
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+
+include::../makef-3.adoc[]
+
+////
+ROUGE STYLES:
+base16
+base16.dark
+base16.light
+colorful
+github
+gruvbox
+igor_pro
+magritte
+molokai
+monokai
+monokai.sublime
+monokai.sublime.light
+pastie
+thankful_eyes
+tulip
+////

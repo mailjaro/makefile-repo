@@ -1,0 +1,12 @@
+= Litt om Makefile
+Jan R Sandbakken <mailjaro@gmail.com>
+v1.0 2026-03-10
+:description: Dette heftet gir en innføring til Makefile
+:doctype: book
+:icons: font
+:sectanchors:
+:source-highlighter: rouge
+:rouge-style: magritte
+:front-cover-image: ../images/cover.png
+
+include::../makef-3.adoc[]

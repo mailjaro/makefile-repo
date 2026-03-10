@@ -1,0 +1,37 @@
+pre {
+  padding: 0.8em;
+  margin: 1em 0;
+  overflow-x: auto;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+div.sourceCode,
+pre.sourceCode {
+  background: inherit !important;
+}
+
+/* INPUT */
+pre.sourceCode.bash,
+pre.sourceCode.json,
+pre.bash,
+pre.json {
+  background-color: #1e1e1e !important;
+  border-left: 4px solid #81c784;
+}
+
+/* OUTPUT */
+pre.text {
+  background-color: #252526;
+  border-left: 4px solid #64b5f6;
+}
+
+/* Highlight */
+
+code span.kw { color: #4fc3f7; font-weight: bold; }
+code span.st { color: #81c784; }
+code span.co { color: #9e9e9e; font-style: italic; }
+code span.dv,
+code span.fl { color: #ffb74d; }
+code span.dt { color: #ba68c8; }

@@ -33,7 +33,7 @@ Vi skal bl.a. se nærmere på:
 - tilordninger
 - conditionals
 
-❗ Når vi snakker om Make i dette heftet, er det GNU Make vi snakker om
+❗ *Når vi snakker om Make i dette heftet, er det GNU Make vi snakker om*
 
 ---
 
@@ -58,27 +58,33 @@ target: dependency1 dependency2
   - filer (som ofte skal produseres), eller
   - merkelapper (såkalte *Phony targets*).
   
-  (Phony targets deklareres med `.PHONY` for å unngå konflikter med eksisterende filer og blir alltid kjørt.)
+  Phony targets deklareres med `.PHONY` for å unngå konflikter med eksisterende filer og slike blir alltid kjørt.
+  
+  ❗ *Make avgjør normalt om en regel må kjøres ved å sammenligne timestamps på filer. For phony targets finnes ingen slik fil, og dermed heller ingen timestamp. Make har derfor ingen måte å avgjøre om targetet allerede er oppdatert, og recipe kjøres derfor alltid.*
 
-**Dependencies** (valgfrie) er andre targets regelen er avhengig av.
+#### Dependencies
+
+(valgfrie) er andre targets regelen er avhengig av.
 
 - Hvis en dependency ikke har regel, antar Make at den representerer en fil
 - Hvis en dependency-fil ikke eksisterer, rapporteres feil.
 - For fil-targets bygges målet kun hvis det mangler, eller om en dependency er nyere enn target.
 
-**Recepies** er shell-kommandoer som kjøres. Disse må starte med en TAB, ikke mellomrom.
-
-Make kjører kommandoene i et shell, vanligvis **/bin/sh**. Det betyr at man kan bruke vanlige shell-konstruksjoner som:
+❗ *Man har også såkalte *order-only dependencies*, de som kommer etter en `|` De må være oppfylt før target bygges, men påvirker ikke Make sin vurdering av om targetet er oppdatert.*
 
 ```makefile
-build:
-	mkdir -p build
-	cp src/* build/
+target: dependency1 dependency2 | dependency0
+    command1
+    command2
 ```
 
-I dette eksempelet var target et phony target med navnet build.
+#### Recepies
 
-Her ser vi et eksempel med et fil-target:
+er shell-kommandoer som kjøres. Disse må starte med en TAB, ikke mellomrom.
+
+Make kjører kommandoene i et shell, vanligvis **/bin/sh**.
+
+Eksempel:
 
 ```makefile
 report.pdf: report.adoc
@@ -161,6 +167,8 @@ For vanlige fil-targets (eller fil-dependencies) som `<filnavn>.txt`, represente
 - `$(suffix …)`
 
 Anvendt på target **fil.txt**, representerer eksempelvis `$(suffix $@)` endelsen `.txt`. Dette er egentlig en funksjon, og vi skal se på flere slike etter hvert.
+
+❗ *Order-only dependencies (de som kommer etter `|`) inngår ikke i i automatiske variable*
 
 Men la oss se nærmere på de kanskje viktigste variablene for oss.
 
