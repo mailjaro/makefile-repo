@@ -41,7 +41,7 @@ EPUB_PAN_LIGHT := $(BUILD)/makef-pan-light.epub
 EPUB_PAN_DARK  := $(BUILD)/makef-pan-dark.epub
 EPUB_ASC_LIGHT := $(BUILD)/makef-asc-light.epub
 EPUB_ASC_DARK  := $(BUILD)/makef-asc-dark.epub
-HTML := $(BUILD)/makef-1.html
+HTML := $(BUILD)/makef.html
 PDF  := $(BUILD)/makef.pdf
 
 
