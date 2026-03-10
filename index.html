@@ -635,7 +635,8 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_intro">Intro</a>
 <ul class="sectlevel3">
 <li><a href="#_hva_løser_make">Hva løser Make?</a></li>
-<li><a href="#_grunnleggende_struktur">Grunnleggende struktur</a>
+<li><a href="#_grunnleggende_struktur">Grunnleggende struktur</a></li>
+<li><a href="#_target">Target</a>
 <ul class="sectlevel4">
 <li><a href="#_dependencies">Dependencies</a></li>
 <li><a href="#_recepies">Recepies</a></li>
@@ -663,6 +664,7 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_makefile_eksempel">Makefile-eksempel</a></li>
 </ul>
 </li>
+<li><a href="#_andre_hefter_i_serien">Andre hefter i serien</a></li>
 </ul>
 </li>
 </ul>
@@ -799,8 +801,21 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
     command2</code></pre>
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_target"><a class="anchor" href="#_target"></a>Target</h4>
 <div class="paragraph">
-<p><strong>Target</strong> kan enten være - filer (som ofte skal produseres), eller - merkelapper (såkalte <em>Phony targets</em>).</p>
+<p>Targets kan enten være</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>filer (som ofte skal produseres), eller</p>
+</li>
+<li>
+<p>merkelapper (såkalte <em>Phony targets</em>).</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Phony targets deklareres med <code>.PHONY</code> for å unngå konflikter med eksisterende filer og slike blir alltid kjørt.</p>
@@ -820,7 +835,7 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <div class="sect4">
 <h5 id="_dependencies"><a class="anchor" href="#_dependencies"></a>Dependencies</h5>
 <div class="paragraph">
-<p>(valgfrie) er andre targets regelen er avhengig av.</p>
+<p>Dependencies (valgfrie) er andre targets regelen er avhengig av.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -842,7 +857,7 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<em>Man har også såkalte </em>order-only dependencies<em>, de som kommer etter en <code>|</code> De må være oppfylt før target bygges, men påvirker ikke Make sin vurdering av om targetet er oppdatert.</em>
+<em>Man har også såkalte </em>order-only dependencies<em>, de som kommer etter en <code>|</code> De må være oppfylt før target bygges, men påvirker verken automatiske variable eller Make sin vurdering av om targetet er oppdatert</em>
 </td>
 </tr>
 </table>
@@ -858,7 +873,7 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <div class="sect4">
 <h5 id="_recepies"><a class="anchor" href="#_recepies"></a>Recepies</h5>
 <div class="paragraph">
-<p>er shell-kommandoer som kjøres. Disse må starte med en TAB, ikke mellomrom.</p>
+<p>Recepies (valgfrie) er shell-kommandoer som kjøres. Disse må starte med en TAB, ikke mellomrom.</p>
 </div>
 <div class="paragraph">
 <p>Make kjører kommandoene i et shell, vanligvis <strong>/bin/sh</strong>.</p>
@@ -921,7 +936,7 @@ fil.txt: dep1
 </div>
 </div>
 <div class="paragraph">
-<p>som før (hvilket kan være å foretrekke om filnavnet er langt). Men i dette tilfellet vil Make presist kunne avgjøre om <strong>fil.txt</strong> fins, om den er endret etc, slik at regelen bare blir brukt når det er nødvendig (som for vanlige fil-targets).</p>
+<p>som før (hvilket kan være å foretrekke om filnavnet er langt). Men i dette tilfellet vil Make kunne avgjøre om <strong>fil.txt</strong> fins (og derfor kunne vurdere om ny kjøring er nødvendig på lik linje med andre fil-targets).</p>
 </div>
 <hr>
 </div>
@@ -1745,6 +1760,27 @@ clean:
     rm -f prog *.o</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_andre_hefter_i_serien"><a class="anchor" href="#_andre_hefter_i_serien"></a>Andre hefter i serien</h3>
+<div class="paragraph">
+<p>Linux: Det neste steget</p>
+</div>
+<div class="paragraph">
+<p><a href="https://mailjaro.github.io/git-repo/">Litt om Git</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://mailjaro.github.io/vscode-repo/">Litt om VS Code</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://mailjaro.github.io/gpg-repo/">Litt om GPG</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://mailjaro.github.io/css-repo/">Litt om CSS</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://mailjaro.github.io/highlight-repo/">Litt om syntaksutheving</a></p>
 </div>
 </div>
 </div>
