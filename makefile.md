@@ -54,7 +54,10 @@ target: dependency1 dependency2
     command2
 ```
 
-  **Target** kan enten være
+  #### Target
+  
+  Targets kan enten være
+
   - filer (som ofte skal produseres), eller
   - merkelapper (såkalte *Phony targets*).
   
@@ -64,13 +67,13 @@ target: dependency1 dependency2
 
 #### Dependencies
 
-(valgfrie) er andre targets regelen er avhengig av.
+Dependencies (valgfrie) er andre targets regelen er avhengig av.
 
 - Hvis en dependency ikke har regel, antar Make at den representerer en fil
 - Hvis en dependency-fil ikke eksisterer, rapporteres feil.
 - For fil-targets bygges målet kun hvis det mangler, eller om en dependency er nyere enn target.
 
-❗ *Man har også såkalte *order-only dependencies*, de som kommer etter en `|` De må være oppfylt før target bygges, men påvirker ikke Make sin vurdering av om targetet er oppdatert.*
+❗ *Man har også såkalte *order-only dependencies*, de som kommer etter en `|` De må være oppfylt før target bygges, men påvirker verken automatiske variable eller Make sin vurdering av om targetet er oppdatert*
 
 ```makefile
 target: dependency1 dependency2 | dependency0
@@ -80,7 +83,7 @@ target: dependency1 dependency2 | dependency0
 
 #### Recepies
 
-er shell-kommandoer som kjøres. Disse må starte med en TAB, ikke mellomrom.
+Recepies (valgfrie) er shell-kommandoer som kjøres. Disse må starte med en TAB, ikke mellomrom.
 
 Make kjører kommandoene i et shell, vanligvis **/bin/sh**.
 
@@ -126,7 +129,7 @@ I den andre har man to regler (med hhv. target **fony** og **fil.txt**). Den fø
 % make fony
 ```
 
-som før (hvilket kan være å foretrekke om filnavnet er langt). Men i dette tilfellet vil Make presist kunne avgjøre om **fil.txt** fins, om den er endret etc, slik at regelen bare blir brukt når det er nødvendig (som for vanlige fil-targets).
+som før (hvilket kan være å foretrekke om filnavnet er langt). Men i dette tilfellet vil Make kunne avgjøre om **fil.txt** fins (og derfor kunne vurdere om ny kjøring er nødvendig på lik linje med andre fil-targets).
 
 ---
 
@@ -604,3 +607,17 @@ test:
 clean:
 	rm -f prog *.o
 ```
+
+## Andre hefter i serien
+
+📘 Linux: Det neste steget
+
+📘 [Litt om Git](https://mailjaro.github.io/git-repo/)
+
+📘 [Litt om VS Code](https://mailjaro.github.io/vscode-repo/)
+
+📘 [Litt om GPG](https://mailjaro.github.io/gpg-repo/)
+
+📘 [Litt om CSS](https://mailjaro.github.io/css-repo/)
+
+📘 [Litt om syntaksutheving](https://mailjaro.github.io/highlight-repo/)
