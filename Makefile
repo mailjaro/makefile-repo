@@ -131,7 +131,7 @@ $(EPUB_ASC_DARK): $(ADOC3) | $(BUILD)
 
 html: $(HTML)
 $(HTML): $(ADOC3) | $(BUILD) 
-	@asciidoctor $(MASTERHTML) -R . -o $@
+	@asciidoctor $(MASTERHTML) -R . -a data-uri -o $@
 	@echo "✅ HTML successfully produced by asciidoctor."
 
 pdf: $(PDF)
