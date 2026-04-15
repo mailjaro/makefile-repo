@@ -610,7 +610,7 @@ clean:
 
 ## Andre hefter i serien
 
-📘 Linux: Det neste steget
+📘 [Linux for hjemmebruk]()
 
 📘 [Litt om Git](https://mailjaro.github.io/git-repo/)
 
@@ -621,3 +621,5 @@ clean:
 📘 [Litt om CSS](https://mailjaro.github.io/css-repo/)
 
 📘 [Litt om syntaksutheving](https://mailjaro.github.io/highlight-repo/)
+
+📘 [Moderne AI: Virkemåte](https://mailjaro.github.io/ai-repo/)
