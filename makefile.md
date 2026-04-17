@@ -610,16 +610,6 @@ clean:
 
 ## Andre hefter i serien
 
-📘 [Linux for hjemmebruk]()
+For andre hefter i serien, se:
 
-📘 [Litt om Git](https://mailjaro.github.io/git-repo/)
-
-📘 [Litt om VS Code](https://mailjaro.github.io/vscode-repo/)
-
-📘 [Litt om GPG](https://mailjaro.github.io/gpg-repo/)
-
-📘 [Litt om CSS](https://mailjaro.github.io/css-repo/)
-
-📘 [Litt om syntaksutheving](https://mailjaro.github.io/highlight-repo/)
-
-📘 [Moderne AI: Virkemåte](https://mailjaro.github.io/ai-repo/)
+📘 [Min startside på GitHub](https://mailjaro.github.io/)
